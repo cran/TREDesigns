@@ -83,7 +83,7 @@ PBtRED1<-function(v){
   ####
   pbtcod1<-rbind(des[nrow(des),],des)
   ###
-  lm<-c(list("PBTRED"=pbtcod1,"v"=v,"p"=nrow(pbtcod1),"n"=v*t,"r"=nrow(pbtcod1)*t,"t"=t),Study_tRED(pbtcod1))
+  lm<-c(list("PBTRED"=pbtcod1,"v"=v,"p"=nrow(pbtcod1),"n"=v*t,"r"=nrow(pbtcod1)*t,"t"=t),Study_RED(pbtcod1))
   return(lm)
 
 }

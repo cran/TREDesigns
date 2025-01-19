@@ -52,6 +52,6 @@ PBtRED3<-function(v){
   }else{
     p=(v+3)/2
   }
-  lm<-c(list("PBTRED"=pbtcod4,"v"=v,"p"=p,"n"=2*v,"r"=2*p,"t"=2),Study_tRED(pbtcod4))
+  lm<-c(list("PBTRED"=pbtcod4,"v"=v,"p"=p,"n"=2*v,"r"=2*p,"t"=2),Study_RED(pbtcod4))
   return(lm)
 }

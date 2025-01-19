@@ -74,7 +74,7 @@ BtRED<-function(v){
   btcod<-rbind(des[nrow(des),],des)
   #####
   t=v-1
-  lm<-c(list("BTRED"=btcod,"v"=v,"p"=nrow(btcod),"n"=ncol(btcod),"r"=nrow(btcod)*t,"t"=t),Study_tRED(btcod))
+  lm<-c(list("BTRED"=btcod,"v"=v,"p"=nrow(btcod),"n"=ncol(btcod),"r"=nrow(btcod)*t,"t"=t),Study_RED(btcod))
   return(lm)
 }
 

@@ -10,8 +10,8 @@
 #' @examples
 #' library(TREDesigns)
 #' design=PBtRED3(v = 5)$PBTRED
-#' Study_tRED(design)
-Study_tRED<-function(design){
+#' Study_RED(design)
+Study_RED<-function(design){
   a=as.matrix(design)
   session<-nrow(a)
   #####ginv
@@ -161,17 +161,17 @@ Study_tRED<-function(design){
   # Compute covt
   covt <- cot %*% MASS::ginv(c_trt) %*% t(cot)
   vart1 <- diag(covt)
-  onet <- matrix(1, nrow = t1, ncol = 1)
-  variance <- vart1 %*% onet
+  # onet <- matrix(1, nrow = t1, ncol = 1)
+  # variance <- vart1 %*% onet
 
   # Compute covr
   covr <- cot %*% MASS::ginv(c_resid) %*% t(cot)
   vart1r <- diag(covr)
-  variance_r <- vart1r %*% onet
+  #variance_r <- vart1r %*% onet
 
   # Calculate average variances
-  av_var <- sum(variance) / length(variance)
-  av_var_r <- sum(variance_r) / length(variance_r)
+  av_var <- mean(vart1)
+  av_var_r <- mean(vart1r)
 
   # Step 7: Eigenvalues and Canonical Efficiency Factor
   eig_trt <- (eigen(c_trt)$values)
@@ -189,7 +189,7 @@ Study_tRED<-function(design){
   can_eff_factor_resid <- (length(eig_resid) / sum(1 / (eig_resid / rep_resid)))
 
   # Output results
-  lm<-list("Cmatrix_trt"=round(c_trt,3),"Cmatrix_residual"=round(c_resid,3),"AVF_trt"=round(av_var,3),"AVF_residual"=round(av_var_r,3),"CEF_trt"=round(can_eff_factor_trt,3),"CEF_residual"=round(can_eff_factor_resid,3))
+  lm<-list("Cmatrix_trt"=round(c_trt,3),"Cmatrix_residual"=round(c_resid,3),"AVF_trt"=round(mean(vart1),3),"AVF_residual"=round(mean(vart1r),3),"CEF_trt"=round(can_eff_factor_trt,3),"CEF_residual"=round(can_eff_factor_resid,3))
   return(lm)
 }
 

@@ -45,6 +45,6 @@ PBtRED4<-function(m){
   first_row<-c(des[nrow(des),(m+1):(2*m)],des[nrow(des),1:m])
   pbtcod3<-rbind(first_row,des,first_row)
   row.names(pbtcod3)<-NULL
-  lm<-c(list("PBTRED"=pbtcod3,"v"=v,"p"=m+2,"n"=v,"r"=(m+2)),Study_tRED(pbtcod3))
+  lm<-c(list("PBTRED"=pbtcod3,"v"=v,"p"=m+2,"n"=v,"r"=(m+2)),Study_RED(pbtcod3))
   return(lm)
 }

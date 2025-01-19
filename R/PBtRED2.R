@@ -116,7 +116,7 @@ PBtRED2<-function(m,series){
       des<-cbind(des,t(expand(initial_block_elements[,i],v-1)))
     }
     des_series1<-rbind(des[nrow(des),],des)
-    lm<-c(list("PBTRED"=des_series1,"v"=v,"p"=5,"n"=v*m,"r"=nrow(des_series1)*m,"t"=m),Study_tRED(des_series1))
+    lm<-c(list("PBTRED"=des_series1,"v"=v,"p"=5,"n"=v*m,"r"=nrow(des_series1)*m,"t"=m),Study_RED(des_series1))
     return(lm)
   }
 
@@ -141,7 +141,7 @@ PBtRED2<-function(m,series){
       des<-cbind(des,t(expand(initial_block_elements[,i],v-1)))
     }
     des_series2<-rbind(des[nrow(des),],des)
-    lm<-c(list("PBTRED"=des_series2,"v"=v,"p"=2*(m+1),"n"=v*2,"r"=4*(m+1),"t"=2),Study_tRED(des_series2))
+    lm<-c(list("PBTRED"=des_series2,"v"=v,"p"=2*(m+1),"n"=v*2,"r"=4*(m+1),"t"=2),Study_RED(des_series2))
     return(lm)
   }
 
@@ -167,7 +167,7 @@ PBtRED2<-function(m,series){
       des<-cbind(des,t(expand(initial_block_elements[,i],v-1)))
     }
     des_series3<-rbind(des[nrow(des),],des)
-    lm<-c(list("PBTRED"=des_series3,"v"=v,"p"=7,"n"=v*m,"r"=7*(m),"t"=m),Study_tRED(des_series3))
+    lm<-c(list("PBTRED"=des_series3,"v"=v,"p"=7,"n"=v*m,"r"=7*(m),"t"=m),Study_RED(des_series3))
     return(lm)
   }
 }
